@@ -1,15 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
-    <Nullable>disable</Nullable>
-    <UseWPF>true</UseWPF>
-    <FileVersion>1.2.0.1</FileVersion>
-    <AssemblyVersion>1.2.0.1</AssemblyVersion>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Nullable>disable</Nullable>
+		<UseWPF>true</UseWPF>
+		<FileVersion>1.2.0.1</FileVersion>
+		<AssemblyVersion>1.2.0.1</AssemblyVersion>
+		<Version>1.2.0</Version>
+		<Authors>limumu1997</Authors>
+		<Company>iliotdotcn</Company>
+		<PackageDescription>NLog.WPF</PackageDescription>
+		<RepositoryUrl>https://github.com/limumu1997/NLog.WPF</RepositoryUrl>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="NLog" Version="5.2.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="NLog" Version="5.2.0" />
+	</ItemGroup>
 
 </Project>
