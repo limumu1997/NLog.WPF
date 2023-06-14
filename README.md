@@ -1,11 +1,10 @@
+[1]: http://dotnetsolutionsbytomi.blogspot.se/2011/06/creating-awesome-logging-control-with.html
+
 # NLog.WPF
 ==========
+
 NLog.WPF is a simple WPF-control to show NLog-logs. It's heavily inspired by [this blog][1].
 
-``` shell
-dotnet pack --configuration Release
-dotnet nuget push "bin/Release/NLog.WPF.1.2.0.nupkg"  --api-key YOUR_GITHUB_PAT  --source "https://nuget.pkg.github.com/limumu1997/index.json"
-```
 
 ## How to use?
 
@@ -29,4 +28,11 @@ To setup NlogViewer as a target, add the following to your Nlog.config.
   <rules>
     <logger name="*" minlevel="Trace" writeTo="ctrl" />
   </rules>
+```
+
+## public packget
+
+``` shell
+dotnet pack --configuration Release
+dotnet nuget push "bin/Release/NLog.WPF.1.2.0.nupkg"  --api-key YOUR_GITHUB_PAT  --source "https://nuget.pkg.github.com/limumu1997/index.json"
 ```
