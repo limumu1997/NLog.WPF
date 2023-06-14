@@ -15,7 +15,7 @@ Add a namespace to your Window, like this:
 
         xmlns:nlog ="clr-namespace:NLog.WPF;assembly=NLog.WPF"
 
-then add the control.
+then add the control
 
          <nlog:NlogListView x:Name="logCtrl" TimeWidth="auto" LoggerNameWidth="0" LevelWidth="auto" ExceptionWidth="auto" MessageWidth="auto" />
 
