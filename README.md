@@ -1,8 +1,12 @@
-[1]: http://dotnetsolutionsbytomi.blogspot.se/2011/06/creating-awesome-logging-control-with.html
+[1]: https://github.com/NLog/NLog.Windows.Forms
+[2]: http://dotnetsolutionsbytomi.blogspot.se/2011/06/creating-awesome-logging-control-with.html
 
 # NLog.WPF
 
-NLog.WPF is a simple WPF-control to show NLog-logs. It's heavily inspired by [this blog][1].
+This package is an extension to [NLog](https://github.com/NLog/NLog/).
+
+NLog.WPF is a simple WPF-control to show NLog-logs. It's heavily inspired by [NLog.Windows.Forms][1] and [this blog][2].
+
 
 
 ## How to use?
@@ -15,7 +19,7 @@ then add the control.
 
          <nlog:NlogListView x:Name="logCtrl" TimeWidth="auto" LoggerNameWidth="0" LevelWidth="auto" ExceptionWidth="auto" MessageWidth="auto" />
 
-or add the control
+or
 
         <nlog:NlogRichTextBox x:Name="logCtrlNlogRichTextBox1"/>
         
