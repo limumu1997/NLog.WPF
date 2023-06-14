@@ -41,9 +41,10 @@ To setup NlogViewer as a target, add the following to your Nlog.config.
     <logger name="*" minlevel="Trace" writeTo="ctrl" />
   </rules>
 ```
+
 ## public packget
 
-``` shell
+``` powershell
 dotnet pack --configuration Release
 dotnet nuget push "bin/Release/NLog.WPF.1.2.0.nupkg"  --api-key YOUR_GITHUB_PAT  --source "https://nuget.pkg.github.com/limumu1997/index.json"
 ```
