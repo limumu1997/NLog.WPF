@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NLog.Avalonia
 {
-    [Target("NLog.WPF")]
+    [Target("NLog.Avalonia")]
     public sealed class NlogViewerTarget : Target
     {
         public event Action<AsyncLogEventInfo> LogReceived;
