@@ -1,18 +1,14 @@
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Threading;
 using NLog.Common;
 using System;
-using System.ComponentModel;
 using System.Linq;
-using System.Windows.Input;
 
 namespace NLog.Avalonia;
 
 public class NlogTextBox : TemplatedControl
 {
-
     public event EventHandler ItemAdded = delegate { };
 
     public NlogTextBox()
@@ -30,38 +26,28 @@ public class NlogTextBox : TemplatedControl
     {
         Dispatcher.UIThread.InvokeAsync(new Action(() =>
         {
-            FormattedMessage(log.LogEvent);
+            string msg = FormattedMessage(log.LogEvent);
+            ShowMsg(msg);
             ItemAdded(this, (NLogEvent)log.LogEvent);
         }));
     }
 
-    private void FormattedMessage(LogEventInfo logEventInfo)
+    private string FormattedMessage(LogEventInfo logEventInfo)
     {
         var Time = logEventInfo.TimeStamp.ToString("yyyy-MM-dd HH:mm:ss.fff");
         var LoggerName = logEventInfo.LoggerName;
         var Level = logEventInfo.Level.ToString();
         var Message = logEventInfo.Message;
-        var LogMsg = $"{Time} [{Level}] {Message}";
-        ShowMsg(LogMsg);
+        return $"{Time} [{Level}] {Message}";
     }
 
     private void ShowMsg(string msg)
     {
-        //if (textBox1.Document.Blocks.Count > MaxRowCount)
-        //{
-        //    ClearMsg();
-        //}
-        //this.textBox1.AppendText(msg);
-        //if (!msg.EndsWith(Environment.NewLine))
-        //{
-        //    this.textBox1.AppendText(Environment.NewLine);
-        //}
-        //textBox1.ScrollToEnd();
+
     }
 
     public void ClearMsg()
     {
-        
-    }
 
+    }
 }

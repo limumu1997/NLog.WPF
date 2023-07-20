@@ -11,7 +11,7 @@ namespace NLog.Avalonia
     [Target("NLog.Avalonia")]
     public sealed class NlogViewerTarget : Target
     {
-        public event Action<AsyncLogEventInfo> LogReceived;
+        public event Action<AsyncLogEventInfo>? LogReceived;
 
         protected override void Write(AsyncLogEventInfo logEvent)
         {
