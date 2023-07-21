@@ -16,10 +16,13 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-	<StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+	<StackPanel>
 		<Button Content="TestLog" Command="{Binding TestLogCommand}"></Button>
 		<Button Content="ClearLog" Command="{Binding ClearLogCommand}"></Button>
-		<controls:NlogTextBox />
+		
+		<StackPanel Height="300">
+			<controls:NlogTextBox NlogHeight="{Binding Path=Height, RelativeSource={RelativeSource AncestorType={x:Type StackPanel}}}" />
+		</StackPanel>
 	</StackPanel>
 
 </Window>

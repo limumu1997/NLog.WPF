@@ -4,44 +4,53 @@ using Avalonia.Threading;
 using NLog.Common;
 using System;
 using System.Linq;
+using Avalonia;
 
 namespace NLog.Avalonia;
 
 public class NlogTextBox : TemplatedControl
 {
+    // styledP auto generate
+    public static readonly StyledProperty<int> NlogHeightProperty = AvaloniaProperty.Register<NlogTextBox, int>(
+        nameof(NlogHeight));
+
+    public int NlogHeight
+    {
+        get => GetValue(NlogHeightProperty);
+        set => SetValue(NlogHeightProperty, value);
+    }
+    
     public event EventHandler ItemAdded = delegate { };
 
     public NlogTextBox()
     {
-        if (!Design.IsDesignMode)
+        if (Design.IsDesignMode) return;
+        foreach (var target in LogManager.Configuration.AllTargets.Where(t => t is NlogViewerTarget).Cast<NlogViewerTarget>())
         {
-            foreach (var target in LogManager.Configuration.AllTargets.Where(t => t is NlogViewerTarget).Cast<NlogViewerTarget>())
-            {
-                target.LogReceived += LogReceived;
-            }
+            target.LogReceived += LogReceived;
         }
     }
 
-    protected void LogReceived(AsyncLogEventInfo log)
+    private void LogReceived(AsyncLogEventInfo log)
     {
         Dispatcher.UIThread.InvokeAsync(new Action(() =>
         {
-            string msg = FormattedMessage(log.LogEvent);
+            var msg = FormattedMessage(log.LogEvent);
             ShowMsg(msg);
             ItemAdded(this, (NLogEvent)log.LogEvent);
         }));
     }
 
-    private string FormattedMessage(LogEventInfo logEventInfo)
+    private static string FormattedMessage(LogEventInfo logEventInfo)
     {
-        var Time = logEventInfo.TimeStamp.ToString("yyyy-MM-dd HH:mm:ss.fff");
-        var LoggerName = logEventInfo.LoggerName;
-        var Level = logEventInfo.Level.ToString();
-        var Message = logEventInfo.Message;
-        return $"{Time} [{Level}] {Message}";
+        var time = logEventInfo.TimeStamp.ToString("yyyy-MM-dd HH:mm:ss.fff");
+        var loggerName = logEventInfo.LoggerName;
+        var level = logEventInfo.Level.ToString();
+        var message = logEventInfo.Message;
+        return $"{time} [{level}] {message}";
     }
 
-    private void ShowMsg(string msg)
+    private static void ShowMsg(string msg)
     {
 
     }

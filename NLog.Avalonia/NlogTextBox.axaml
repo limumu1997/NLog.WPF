@@ -10,11 +10,13 @@
     <Setter Property="Template">
       <ControlTemplate>
 		  <TextBox
-	          Text="Hello"
+			  Text="Hello"
 	          Name="textBox1"
-	          BorderThickness="0"
+			  BorderBrush="LightBlue"
+			  Height="{TemplateBinding NlogHeight}"
+			  AcceptsReturn="True"
+			  TextWrapping="Wrap"
 	          FontSize="12"
-	          IsReadOnly="True"
 	          Margin="0,2" />
       </ControlTemplate>
     </Setter>
