@@ -19,8 +19,10 @@ public class NlogTextBox : TemplatedControl
         get => GetValue(NlogHeightProperty);
         set => SetValue(NlogHeightProperty, value);
     }
-    
+
     public event EventHandler ItemAdded = delegate { };
+
+    private TextBox? _textBox;
 
     public NlogTextBox()
     {
@@ -41,7 +43,7 @@ public class NlogTextBox : TemplatedControl
         }));
     }
 
-    private static string FormattedMessage(LogEventInfo logEventInfo)
+    private string FormattedMessage(LogEventInfo logEventInfo)
     {
         var time = logEventInfo.TimeStamp.ToString("yyyy-MM-dd HH:mm:ss.fff");
         var loggerName = logEventInfo.LoggerName;
@@ -50,13 +52,19 @@ public class NlogTextBox : TemplatedControl
         return $"{time} [{level}] {message}";
     }
 
-    private static void ShowMsg(string msg)
+    private void ShowMsg(string msg)
     {
-
+        if (_textBox != null) _textBox.Text = msg;
     }
 
     public void ClearMsg()
     {
 
+    }
+
+    protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
+    {
+        base.OnApplyTemplate(e);
+        _textBox = e.NameScope.Find<TextBox>("textBox1");
     }
 }
