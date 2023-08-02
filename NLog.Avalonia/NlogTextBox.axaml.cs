@@ -5,6 +5,7 @@ using NLog.Common;
 using System;
 using System.Linq;
 using Avalonia;
+using Avalonia.Interactivity;
 
 namespace NLog.Avalonia;
 
@@ -20,9 +21,24 @@ public class NlogTextBox : TemplatedControl
         set => SetValue(NlogHeightProperty, value);
     }
 
+    public static readonly RoutedEvent<RoutedEventArgs> ValueChangedEvent =
+        RoutedEvent.Register<NlogTextBox, RoutedEventArgs>(nameof(ValueChanged), RoutingStrategies.Bubble);
+
+    public event EventHandler<RoutedEventArgs> ValueChanged
+    {
+        add => AddHandler(ValueChangedEvent, value);
+        remove => RemoveHandler(ValueChangedEvent, value);
+    }
+
+    protected virtual void OnValueChanged()
+    {
+        RoutedEventArgs args = new RoutedEventArgs(ValueChangedEvent);
+        RaiseEvent(args);
+    }
+    
     public event EventHandler ItemAdded = delegate { };
 
-    private TextBox? _textBox;
+    private TextBox _textBox;
 
     public NlogTextBox()
     {
@@ -43,7 +59,7 @@ public class NlogTextBox : TemplatedControl
         }));
     }
 
-    private string FormattedMessage(LogEventInfo logEventInfo)
+    private static string FormattedMessage(LogEventInfo logEventInfo)
     {
         var time = logEventInfo.TimeStamp.ToString("yyyy-MM-dd HH:mm:ss.fff");
         var loggerName = logEventInfo.LoggerName;
@@ -54,12 +70,12 @@ public class NlogTextBox : TemplatedControl
 
     private void ShowMsg(string msg)
     {
-        if (_textBox != null) _textBox.Text = msg;
+        _textBox.Text = _textBox.Text + Environment.NewLine + msg;
     }
 
     public void ClearMsg()
     {
-
+        _textBox!.Text = "";
     }
 
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)

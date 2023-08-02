@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using System.Threading.Tasks;
+using CommunityToolkit.Mvvm.Input;
 using NLog;
 
 namespace AvaloniaNLogSimple.ViewModels
@@ -9,9 +10,13 @@ namespace AvaloniaNLogSimple.ViewModels
         public string Greeting => "Welcome to Avalonia!";
 
         [RelayCommand]
-        private void TestLog()
+        private async Task TestLogAsync()
         {
-            logger.Info("TestLog");
+            for (int i = 0; i < 100000; i++)
+            {
+                await Task.Delay(10);
+                logger.Info("TestLog");
+            }
         }
 
         [RelayCommand]

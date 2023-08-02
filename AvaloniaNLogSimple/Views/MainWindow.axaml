@@ -18,11 +18,13 @@
 
 	<StackPanel>
 		<Button Content="TestLog" Command="{Binding TestLogCommand}"></Button>
-		<Button Content="ClearLog" Command="{Binding ClearLogCommand}"></Button>
+		<Button Content="ClearLog" CommandParameter="{Binding ElementName=NlogTextBox}" Command="{Binding ClearLogCommand}"></Button>
 		
 		<StackPanel Height="300">
-			<controls:NlogTextBox NlogHeight="{Binding Path=Height, RelativeSource={RelativeSource AncestorType={x:Type StackPanel}}}" />
+			<ItemsControl></ItemsControl>
+			<controls:NlogTextBox Name="NlogTextBox" NlogHeight="{Binding Path=Height, RelativeSource={RelativeSource AncestorType={x:Type StackPanel}}}" />
 		</StackPanel>
 	</StackPanel>
 
 </Window>
+	
