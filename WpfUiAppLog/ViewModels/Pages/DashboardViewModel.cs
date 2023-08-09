@@ -21,10 +21,7 @@ namespace WpfUiAppLog.ViewModels.Pages
 
         private void Theme_Changed(ThemeType currentTheme, Color systemAccent)
         {
-            if (currentTheme == ThemeType.Light)
-            {
-                IsLightTheme = true;
-            }
+            IsLightTheme = currentTheme == ThemeType.Light;
         }
 
         [RelayCommand]
@@ -33,7 +30,7 @@ namespace WpfUiAppLog.ViewModels.Pages
             Counter++;
             // ture is show on the nlog textbox
             logger.Info(Counter.ToString(), true);
-            logger.Info(IsLightTheme.ToString(),"11");
+            logger.Info(IsLightTheme.ToString(),true);
 
 
         }

@@ -28,7 +28,11 @@ namespace NLog.WPF
                 nameof(IsLightTheme),
                 typeof(bool),
                 typeof(NlogRichTextBox),
-                new PropertyMetadata(false)
+                new PropertyMetadata(false, (o, args) =>
+                {
+                    var tb = o as NlogRichTextBox;
+                    tb?.ClearMsg();
+                })
             );
 
         public bool IsLightTheme
@@ -143,10 +147,7 @@ namespace NLog.WPF
             }
             else
             {
-                if (IsLightTheme)
-                {
-                    lastParagraph.Foreground = Brushes.Black;
-                }
+                lastParagraph.Foreground = IsLightTheme ? Brushes.Black : Brushes.White;
             }
         }
     }
