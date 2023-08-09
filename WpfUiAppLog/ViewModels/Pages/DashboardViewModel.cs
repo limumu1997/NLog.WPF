@@ -9,7 +9,7 @@ namespace WpfUiAppLog.ViewModels.Pages
         private readonly static Logger logger = LogManager.GetCurrentClassLogger();
 
         [ObservableProperty]
-        private bool _aaAAA = true;
+        private bool _isLightTheme;
 
         [ObservableProperty]
         private int _counter = 0;
@@ -23,7 +23,7 @@ namespace WpfUiAppLog.ViewModels.Pages
         {
             if (currentTheme == ThemeType.Light)
             {
-                AaAAA = true;
+                IsLightTheme = true;
             }
         }
 
@@ -31,9 +31,9 @@ namespace WpfUiAppLog.ViewModels.Pages
         private void OnCounterIncrement()
         {
             Counter++;
-            logger.Info(Counter.ToString());
-            AaAAA = !AaAAA;
-            logger.Info(AaAAA.ToString());
+            // ture is show on the nlog textbox
+            logger.Info(Counter.ToString(), true);
+            logger.Info(IsLightTheme.ToString(),"11");
 
 
         }

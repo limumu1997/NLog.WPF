@@ -13,5 +13,6 @@ namespace WpfAppLog
     /// </summary>
     public partial class App : Application
     {
+
     }
 }

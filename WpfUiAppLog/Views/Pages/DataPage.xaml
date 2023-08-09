@@ -22,6 +22,16 @@
         <ui:RichTextBox Name="richTextBox">
             <FlowDocument>
                 <Paragraph>Hello World</Paragraph>
+                <Paragraph>Hello World</Paragraph>
+                <Paragraph>Hello World</Paragraph>
+                <Paragraph>Hello World</Paragraph>
+                <Paragraph>Hello World</Paragraph>
+                <Paragraph>Hello World</Paragraph>
+                <Paragraph>Hello World</Paragraph>
+                <Paragraph>Hello World</Paragraph>
+                <Paragraph>Hello World</Paragraph>
+                <Paragraph>Hello World</Paragraph>
+                <Paragraph>Hello World</Paragraph>
             </FlowDocument>
         </ui:RichTextBox>
         <!--<ui:VirtualizingItemsControl

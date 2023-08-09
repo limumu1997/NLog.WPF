@@ -35,7 +35,9 @@
             Margin="20,0,20,20"
             HorizontalAlignment="Left"
             Header="日志">
-            <nlog:NlogRichTextBox IsLightTheme="{Binding AaAAA}" />
+            <!-- https://stackoverflow.com/questions/56913566/how-to-use-a-user-control-dependency-property-when-setting-its-data-context -->
+            <!-- 默认在控件中的DateContext找查绑定的属性，需要指向到父组件的属性 -->
+            <nlog:NlogRichTextBox IsLightTheme="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:DashboardPage}}, Path=DataContext.IsLightTheme}" />
         </GroupBox>
     </StackPanel>
 </Page>

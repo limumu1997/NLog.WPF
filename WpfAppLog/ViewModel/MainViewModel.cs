@@ -30,7 +30,7 @@ namespace WpfAppLog.ViewModel
             {
                 if (_isLightTheme == value) return;
                 _isLightTheme = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsLightTheme)));
+                OnPropertyChanged(nameof(IsLightTheme));
             }
         }
 
@@ -58,13 +58,10 @@ namespace WpfAppLog.ViewModel
         private void Clear()
         {
             // 使用反射获取 RichTextBox 控件并调用 Clear 方法
-            var rtb = Application.Current.Windows[0]?.FindName("richTextEditor") as RichTextBox;
+            RichTextBox rtb = Application.Current.Windows[0]?.FindName("richTextEditor") as RichTextBox;
             if (rtb == null) return;
             var clearMethod = rtb.GetType().GetMethod("Clear", BindingFlags.Instance | BindingFlags.Public);
-            if (clearMethod != null)
-            {
-                clearMethod.Invoke(rtb, null);
-            }
+            clearMethod?.Invoke(rtb, null);
         }
 
         private void OnPropertyChanged(string propertyName)

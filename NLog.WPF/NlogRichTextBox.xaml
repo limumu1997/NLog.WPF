@@ -25,6 +25,5 @@
                 </Style>
             </RichTextBox.Resources>
         </RichTextBox>
-
     </Grid>
 </UserControl>

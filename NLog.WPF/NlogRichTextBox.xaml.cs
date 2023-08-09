@@ -20,6 +20,7 @@ namespace NLog.WPF
         public static readonly ICommand ClearCommand = new RoutedCommand("Clear", typeof(NlogRichTextBox));
 
         /// <summary>
+        /// Visual Studio if you type "propdp" and then TabTab. 
         /// Property for <see cref="IsLightThemeProperty"/>.
         /// </summary>
         public static readonly DependencyProperty IsLightThemeProperty =
@@ -27,19 +28,15 @@ namespace NLog.WPF
                 nameof(IsLightTheme),
                 typeof(bool),
                 typeof(NlogRichTextBox),
-                new FrameworkPropertyMetadata(false, (d, e) =>
-                {
-                    var nlogRichTextBox = (NlogRichTextBox)d;
-                    nlogRichTextBox._isLightTheme = (bool)e.NewValue;
-                })
+                new PropertyMetadata(false)
             );
-        private bool _isLightTheme;
+
         public bool IsLightTheme
         {
             get => (bool)GetValue(IsLightThemeProperty);
             set => SetValue(IsLightThemeProperty, value);
-        }
 
+        }
         private int _MaxRowCount = 200;
 
         [Description("Document Max count."), Category("Data")]
@@ -67,6 +64,7 @@ namespace NLog.WPF
 
         protected void LogReceived(AsyncLogEventInfo log)
         {
+            if (!IsShowLogMessage(log.LogEvent)) return;
             Dispatcher.BeginInvoke(new Action(() =>
             {
                 SetupColors(log.LogEvent);
@@ -75,6 +73,15 @@ namespace NLog.WPF
             }));
         }
 
+        private bool IsShowLogMessage(LogEventInfo logEventInfo)
+        {
+            if (logEventInfo.Parameters is { Length: > 0 })
+            {
+                return logEventInfo.Parameters[0] is true;
+            }
+            return false;
+        }
+        
         private void FormattedMessage(LogEventInfo logEventInfo)
         {
             var Time = logEventInfo.TimeStamp.ToString("yyyy-MM-dd HH:mm:ss.fff");
@@ -111,6 +118,11 @@ namespace NLog.WPF
             ClearMsg();
         }
 
+        private void IsLight_Executed()
+        {
+            IsLightTheme = !IsLightTheme;
+        }
+
         private void SetupColors(LogEventInfo logEventInfo)
         {
             // 获取最后一个段落
@@ -131,7 +143,7 @@ namespace NLog.WPF
             }
             else
             {
-                if (_isLightTheme)
+                if (IsLightTheme)
                 {
                     lastParagraph.Foreground = Brushes.Black;
                 }
