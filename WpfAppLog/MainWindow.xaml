@@ -42,6 +42,8 @@
                     <CheckBox x:Name="cbAutoScroll" Content="Scroll To Last" HorizontalAlignment="Left" VerticalAlignment ="Center" Checked="AutoScroll_Checked" Unchecked="AutoScroll_Unchecked"/>
                 </StackPanel>
                 <Button Content="ClearLog" CommandTarget="{Binding ElementName=logCtrlNlogRichTextBox1}"  Command="{x:Static nlog:NlogRichTextBox.ClearCommand}" />
+                
+                <Button Content="IsLightTheme" Command="{Binding TestCommand}" />
             </StackPanel>
         </GroupBox>
 
@@ -56,7 +58,7 @@
         </GroupBox>
 
         <GroupBox Grid.Row="4" Header="NlogRichTextBox">
-            <nlog:NlogRichTextBox x:Name="logCtrlNlogRichTextBox1"/>
+            <nlog:NlogRichTextBox x:Name="logCtrlNlogRichTextBox1" IsLightTheme="{Binding IsLightTheme}"/>
         </GroupBox>
 
     </Grid>

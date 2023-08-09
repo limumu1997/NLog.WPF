@@ -3,21 +3,22 @@
 // Copyright (C) Leszek Pomianowski and WPF UI Contributors.
 // All Rights Reserved.
 
+using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
 using WpfUiAppLog.ViewModels.Pages;
 
 namespace WpfUiAppLog.Views.Pages
 {
-    public partial class DashboardPage : INavigableView<DashboardViewModel>
+    public partial class DashboardPage //: INavigableView<DashboardViewModel>
     {
-        public DashboardViewModel ViewModel { get; }
 
-        public DashboardPage(DashboardViewModel viewModel)
+        public DashboardPage()
         {
-            ViewModel = viewModel;
-            DataContext = this;
+            var viewModel = new DashboardViewModel();
+            DataContext = viewModel;
 
             InitializeComponent();
         }
+
     }
 }

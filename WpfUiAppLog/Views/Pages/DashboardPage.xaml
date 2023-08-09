@@ -7,8 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:nlog="clr-namespace:NLog.WPF;assembly=NLog.WPF"
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:vm="clr-namespace:WpfUiAppLog.ViewModels.Pages"
     Title="DashboardPage"
-    d:DataContext="{d:DesignInstance local:DashboardPage,
+    d:DataContext="{d:DesignInstance vm:DashboardViewModel,
                                      IsDesignTimeCreatable=False}"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -20,13 +21,13 @@
     <StackPanel>
 
         <ui:Button
-            Command="{Binding ViewModel.CounterIncrementCommand, Mode=OneWay}"
+            Command="{Binding CounterIncrementCommand, Mode=OneWay}"
             Content="Click me!"
             Icon="Fluent24" />
         <TextBlock
             Margin="12,0,0,0"
             VerticalAlignment="Center"
-            Text="{Binding ViewModel.Counter, Mode=OneWay}" />
+            Text="{Binding Counter, Mode=OneWay}" />
 
         <GroupBox
             Width="720"
@@ -34,7 +35,7 @@
             Margin="20,0,20,20"
             HorizontalAlignment="Left"
             Header="日志">
-            <nlog:NlogRichTextBox x:Name="logCtrlNlogRichTextBox1" IsLightTheme="{Binding ViewModel.IsLightTheme}" />
+            <nlog:NlogRichTextBox IsLightTheme="{Binding AaAAA}" />
         </GroupBox>
     </StackPanel>
 </Page>

@@ -1,5 +1,4 @@
 ﻿using NLog.Common;
-using NLog.Fluent;
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -20,7 +19,6 @@ namespace NLog.WPF
 
         public static readonly ICommand ClearCommand = new RoutedCommand("Clear", typeof(NlogRichTextBox));
 
-
         /// <summary>
         /// Property for <see cref="IsLightThemeProperty"/>.
         /// </summary>
@@ -35,7 +33,6 @@ namespace NLog.WPF
                     nlogRichTextBox._isLightTheme = (bool)e.NewValue;
                 })
             );
-
         private bool _isLightTheme;
         public bool IsLightTheme
         {
@@ -44,6 +41,7 @@ namespace NLog.WPF
         }
 
         private int _MaxRowCount = 200;
+
         [Description("Document Max count."), Category("Data")]
         [TypeConverter(typeof(Int32Converter))]
         public int MaxRowCount
@@ -57,11 +55,13 @@ namespace NLog.WPF
             InitializeComponent();
             if (!DesignerProperties.GetIsInDesignMode(this))
             {
-                foreach (var target in LogManager.Configuration.AllTargets.Where(t => t is NlogViewerTarget).Cast<NlogViewerTarget>())
+                foreach (var target in LogManager.Configuration.AllTargets.Where(t => t is NlogViewerTarget)
+                             .Cast<NlogViewerTarget>())
                 {
                     target.LogReceived += LogReceived;
                 }
             }
+
             CommandBindings.Add(new CommandBinding(ClearCommand, ClearCommand_Executed));
         }
 
@@ -91,11 +91,13 @@ namespace NLog.WPF
             {
                 ClearMsg();
             }
+
             this.richTextBox1.AppendText(msg);
             if (!msg.EndsWith(Environment.NewLine))
             {
                 this.richTextBox1.AppendText(Environment.NewLine);
             }
+
             richTextBox1.ScrollToEnd();
         }
 
@@ -134,8 +136,6 @@ namespace NLog.WPF
                     lastParagraph.Foreground = Brushes.Black;
                 }
             }
-
         }
-
     }
 }
