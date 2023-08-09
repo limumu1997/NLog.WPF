@@ -4,9 +4,9 @@
 		<TargetFramework>net6.0-windows</TargetFramework>
 		<Nullable>disable</Nullable>
 		<UseWPF>true</UseWPF>
-		<FileVersion>1.2.1.2</FileVersion>
-		<AssemblyVersion>1.2.1.2</AssemblyVersion>
-		<Version>1.2.2</Version>
+		<FileVersion>1.2.1.3</FileVersion>
+		<AssemblyVersion>1.2.1.3</AssemblyVersion>
+		<Version>1.2.3</Version>
 		<Authors>limumu1997</Authors>
 		<Company>iliotdotcn</Company>
 		<PackageDescription>NLog.WPF</PackageDescription>
@@ -14,6 +14,8 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageTags>NLog.WPF is a simple WPF-control to show NLog-logs. </PackageTags>
+		<PackageProjectUrl>https://github.com/limumu1997/NLog.WPF</PackageProjectUrl>
+		<Description>NLog.WPF is a simple WPF-control to show NLog-logs. </Description>
 	</PropertyGroup>
 
 	<ItemGroup>

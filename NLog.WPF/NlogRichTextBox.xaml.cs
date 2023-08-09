@@ -16,10 +16,32 @@ namespace NLog.WPF
     /// </summary>
     public partial class NlogRichTextBox : UserControl
     {
+        public event EventHandler ItemAdded = delegate { };
+
         public static readonly ICommand ClearCommand = new RoutedCommand("Clear", typeof(NlogRichTextBox));
 
 
-        public event EventHandler ItemAdded = delegate { };
+        /// <summary>
+        /// Property for <see cref="IsLightThemeProperty"/>.
+        /// </summary>
+        public static readonly DependencyProperty IsLightThemeProperty =
+            DependencyProperty.Register(
+                nameof(IsLightTheme),
+                typeof(bool),
+                typeof(NlogRichTextBox),
+                new FrameworkPropertyMetadata(false, (d, e) =>
+                {
+                    var nlogRichTextBox = (NlogRichTextBox)d;
+                    nlogRichTextBox._isLightTheme = (bool)e.NewValue;
+                })
+            );
+
+        private bool _isLightTheme;
+        public bool IsLightTheme
+        {
+            get => (bool)GetValue(IsLightThemeProperty);
+            set => SetValue(IsLightThemeProperty, value);
+        }
 
         private int _MaxRowCount = 200;
         [Description("Document Max count."), Category("Data")]
@@ -107,13 +129,13 @@ namespace NLog.WPF
             }
             else
             {
-                lastParagraph.Foreground = Brushes.Black;
+                if (_isLightTheme)
+                {
+                    lastParagraph.Foreground = Brushes.Black;
+                }
             }
 
         }
-
-
-
 
     }
 }
