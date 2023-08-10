@@ -30,6 +30,13 @@ clear NlogRichTextBox
 
 To setup NlogViewer as a target, add the following to your Nlog.config.
 
+### Version
+
+#### 1.2.4
+feat:
+  1. add IsLightTheme Property
+  2. add IsShowLogMessage Function
+
 ```xml
   <extensions>
     <add assembly="NLog.WPF" />

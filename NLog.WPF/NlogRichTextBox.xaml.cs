@@ -122,11 +122,6 @@ namespace NLog.WPF
             ClearMsg();
         }
 
-        private void IsLight_Executed()
-        {
-            IsLightTheme = !IsLightTheme;
-        }
-
         private void SetupColors(LogEventInfo logEventInfo)
         {
             // 获取最后一个段落
