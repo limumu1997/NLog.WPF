@@ -31,6 +31,10 @@ clear NlogRichTextBox
 To setup NlogViewer as a target, add the following to your Nlog.config.
 
 ### Version
+#### 1.2.5
+feat:
+  1. fixed some known issues
+
 
 #### 1.2.4
 feat:
