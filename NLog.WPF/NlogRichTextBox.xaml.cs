@@ -39,8 +39,8 @@ namespace NLog.WPF
         {
             get => (bool)GetValue(IsLightThemeProperty);
             set => SetValue(IsLightThemeProperty, value);
-
         }
+
         private int _MaxRowCount = 200;
 
         [Description("Document Max count."), Category("Data")]
@@ -68,7 +68,7 @@ namespace NLog.WPF
 
         protected void LogReceived(AsyncLogEventInfo log)
         {
-            if (!IsShowLogMessage(log.LogEvent)) return;
+            if (NotShowLogMessage(log.LogEvent)) return;
             Dispatcher.BeginInvoke(new Action(() =>
             {
                 SetupColors(log.LogEvent);
@@ -77,7 +77,7 @@ namespace NLog.WPF
             }));
         }
 
-        private bool IsShowLogMessage(LogEventInfo logEventInfo)
+        private bool NotShowLogMessage(LogEventInfo logEventInfo)
         {
             if (logEventInfo.Parameters is { Length: > 0 })
             {
@@ -142,7 +142,7 @@ namespace NLog.WPF
             }
             else
             {
-                lastParagraph.Foreground = IsLightTheme ? Brushes.Black : Brushes.White;
+                lastParagraph.Foreground = IsLightTheme ? Brushes.White : Brushes.Black;
             }
         }
     }

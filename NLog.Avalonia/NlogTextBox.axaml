@@ -1,24 +1,24 @@
-<Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:controls="using:NLog.Avalonia">
-  <Design.PreviewWith>
-    <controls:NlogTextBox />
-  </Design.PreviewWith>
+<Styles
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:NLog.Avalonia">
+    <Design.PreviewWith>
+        <controls:NlogTextBox />
+    </Design.PreviewWith>
 
-  <Style Selector="controls|NlogTextBox">
-    <!-- Set Defaults -->
-    <Setter Property="Template">
-      <ControlTemplate>
-		  <TextBox
-			  Text="Hello"
-	          Name="textBox1"
-			  BorderBrush="LightBlue"
-			  Height="{TemplateBinding NlogHeight}"
-			  AcceptsReturn="True"
-			  TextWrapping="Wrap"
-	          FontSize="12"
-	          Margin="0,2" />
-      </ControlTemplate>
-    </Setter>
-  </Style>
+    <Style Selector="controls|NlogTextBox">
+        <!--  Set Defaults  -->
+        <Setter Property="Template">
+            <ControlTemplate>
+                <TextBox
+                    Name="textBox1"
+                    Height="{TemplateBinding NlogHeight}"
+                    Margin="0,2"
+                    AcceptsReturn="True"
+                    BorderBrush="LightBlue"
+                    FontSize="12"
+                    TextWrapping="Wrap" />
+            </ControlTemplate>
+        </Setter>
+    </Style>
 </Styles>

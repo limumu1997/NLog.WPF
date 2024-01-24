@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLog.Avalonia", "NLog.Avalo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaloniaNLogSimple", "AvaloniaNLogSimple\AvaloniaNLogSimple.csproj", "{F6282779-9B5C-456C-BA30-85E3C088B6E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfUiAppLog", "WpfUiAppLog\WpfUiAppLog.csproj", "{59F918F1-FBE4-4E59-8D85-E8321618F6B9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfAppLogSimple", "WpfAppLogSimple\WpfAppLogSimple.csproj", "{C2984AAD-F5BE-49B5-89F7-E8FDF21A862C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{F6282779-9B5C-456C-BA30-85E3C088B6E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6282779-9B5C-456C-BA30-85E3C088B6E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6282779-9B5C-456C-BA30-85E3C088B6E8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{59F918F1-FBE4-4E59-8D85-E8321618F6B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{59F918F1-FBE4-4E59-8D85-E8321618F6B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{59F918F1-FBE4-4E59-8D85-E8321618F6B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{59F918F1-FBE4-4E59-8D85-E8321618F6B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2984AAD-F5BE-49B5-89F7-E8FDF21A862C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2984AAD-F5BE-49B5-89F7-E8FDF21A862C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2984AAD-F5BE-49B5-89F7-E8FDF21A862C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2984AAD-F5BE-49B5-89F7-E8FDF21A862C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -21,7 +21,7 @@ public class NlogTextBox : TemplatedControl
         set => SetValue(NlogHeightProperty, value);
     }
 
-    public static readonly RoutedEvent<RoutedEventArgs> ValueChangedEvent =
+    private static readonly RoutedEvent<RoutedEventArgs> ValueChangedEvent =
         RoutedEvent.Register<NlogTextBox, RoutedEventArgs>(nameof(ValueChanged), RoutingStrategies.Bubble);
 
     public event EventHandler<RoutedEventArgs> ValueChanged
@@ -38,7 +38,7 @@ public class NlogTextBox : TemplatedControl
     
     public event EventHandler ItemAdded = delegate { };
 
-    private TextBox _textBox;
+    private TextBox? _textBox;
 
     public NlogTextBox()
     {
@@ -51,12 +51,12 @@ public class NlogTextBox : TemplatedControl
 
     private void LogReceived(AsyncLogEventInfo log)
     {
-        Dispatcher.UIThread.InvokeAsync(new Action(() =>
+        Dispatcher.UIThread.InvokeAsync(() =>
         {
             var msg = FormattedMessage(log.LogEvent);
             ShowMsg(msg);
             ItemAdded(this, (NLogEvent)log.LogEvent);
-        }));
+        });
     }
 
     private static string FormattedMessage(LogEventInfo logEventInfo)
@@ -70,7 +70,7 @@ public class NlogTextBox : TemplatedControl
 
     private void ShowMsg(string msg)
     {
-        _textBox.Text = _textBox.Text + Environment.NewLine + msg;
+        if (_textBox != null) _textBox.Text = _textBox.Text + Environment.NewLine + msg;
     }
 
     public void ClearMsg()
