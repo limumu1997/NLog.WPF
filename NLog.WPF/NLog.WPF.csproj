@@ -6,7 +6,7 @@
 		<UseWPF>true</UseWPF>
 		<FileVersion>1.2.5.0</FileVersion>
 		<AssemblyVersion>1.2.5.0</AssemblyVersion>
-		<Version>1.5.4</Version>
+		<Version>1.2.5</Version>
 		<Authors>limumu1997</Authors>
 		<Company>iliotdotcn</Company>
 		<PackageDescription>NLog.WPF</PackageDescription>
