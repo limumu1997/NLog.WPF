@@ -4,9 +4,9 @@
 		<TargetFramework>net6.0-windows</TargetFramework>
 		<Nullable>disable</Nullable>
 		<UseWPF>true</UseWPF>
-		<FileVersion>1.2.5.0</FileVersion>
-		<AssemblyVersion>1.2.5.0</AssemblyVersion>
-		<Version>1.2.5</Version>
+		<FileVersion>1.2.6.0</FileVersion>
+		<AssemblyVersion>1.2.6.0</AssemblyVersion>
+		<Version>1.2.6</Version>
 		<Authors>limumu1997</Authors>
 		<Company>iliotdotcn</Company>
 		<PackageDescription>NLog.WPF</PackageDescription>
