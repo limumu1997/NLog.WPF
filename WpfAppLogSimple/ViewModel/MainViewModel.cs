@@ -13,10 +13,9 @@ namespace WpfAppLogSimple.ViewModel
     {
         private readonly static Logger logger = LogManager.GetCurrentClassLogger();
 
-
         public MainViewModel()
         {
-
+            logger.Info("Constructor function");
         }
 
         [RelayCommand]

@@ -1,5 +1,6 @@
 ﻿using NLog.Common;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
@@ -62,8 +63,15 @@ namespace NLog.WPF
                     target.LogReceived += LogReceived;
                 }
             }
-
             CommandBindings.Add(new CommandBinding(ClearCommand, ClearCommand_Executed));
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            foreach (AsyncLogEventInfo logs in NlogViewerTarget.CachedLogs)
+            {
+                LogReceived(logs);
+            }
         }
 
         protected void LogReceived(AsyncLogEventInfo log)
@@ -88,11 +96,11 @@ namespace NLog.WPF
         
         private void FormattedMessage(LogEventInfo logEventInfo)
         {
-            var Time = logEventInfo.TimeStamp.ToString("yyyy-MM-dd HH:mm:ss.fff");
-            var LoggerName = logEventInfo.LoggerName;
-            var Level = logEventInfo.Level.ToString();
-            var Message = logEventInfo.Message;
-            var LogMsg = $"{Time} [{Level}] {Message}";
+            string Time = logEventInfo.TimeStamp.ToString("yyyy-MM-dd HH:mm:ss.fff");
+            string LoggerName = logEventInfo.LoggerName;
+            string Level = logEventInfo.Level.ToString();
+            string Message = logEventInfo.Message;
+            string LogMsg = $"{Time} [{Level}] {Message}";
             ShowMsg(LogMsg);
         }
 
@@ -145,5 +153,6 @@ namespace NLog.WPF
                 lastParagraph.Foreground = IsLightTheme ? Brushes.White : Brushes.Black;
             }
         }
+
     }
 }
