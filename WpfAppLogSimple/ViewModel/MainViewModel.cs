@@ -15,7 +15,7 @@ namespace WpfAppLogSimple.ViewModel
 
         public MainViewModel()
         {
-            logger.Info("Constructor function");
+            logger.Info("Constructor function", false);
         }
 
         [RelayCommand]
