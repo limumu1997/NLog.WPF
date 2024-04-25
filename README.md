@@ -31,6 +31,12 @@ clear NlogRichTextBox
 To setup NlogViewer as a target, add the following to your Nlog.config.
 
 ### Version
+
+#### 1.2.6
+fix:
+    1. Constructor display failed
+    2. Parameters[0] is true => Not Show Log Message
+
 #### 1.2.5
 feat:
   1. fixed some known issues

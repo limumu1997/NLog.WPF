@@ -11,7 +11,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLog.Avalonia", "NLog.Avalo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvaloniaNLogSimple", "AvaloniaNLogSimple\AvaloniaNLogSimple.csproj", "{F6282779-9B5C-456C-BA30-85E3C088B6E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfAppLogSimple", "WpfAppLogSimple\WpfAppLogSimple.csproj", "{C2984AAD-F5BE-49B5-89F7-E8FDF21A862C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfAppLogSimple", "WpfAppLogSimple\WpfAppLogSimple.csproj", "{C2984AAD-F5BE-49B5-89F7-E8FDF21A862C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{983EADC2-87DE-45B9-A947-272DB98E037D}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
